@@ -52,7 +52,7 @@ public class PopulateDataActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void openReservationInfoActivity() {
-        startActivity(new Intent(this, FlightInfoActivity.class));
+        startActivity(new Intent(this, ReservationInfoActivity.class));
     }
 
     private void openFlightInfoActivity() {
