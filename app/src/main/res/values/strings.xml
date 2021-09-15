@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Airline Ticket Reservation System</string>
+    <string name="populate_data">Populate data into Tables</string>
+    <string name="retrieve_data">Retrieve data from tables</string>
+    <string name="welcome_txt">Hi!!!!\nWhat would you like to do ?</string>
+    <string name="select_table_heading">Select Table you want to populate data into</string>
+    <string name="table_name_flight">Flight</string>
+    <string name="table_name_reservation">Reservation</string>
+    <string name="table_name_ticket">Ticket</string>
+    <string name="table_name_passenger">Passenger</string>
+    <string name="enter_flight_data">Please Enter the Flight Data</string>
+    <string name="flight_number">Flight Number</string>
+    <string name="aircraft">Aircraft</string>
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+    <string name="airline">Airline</string>
+    <string name="flight_time">Flight Time</string>
+    <string name="retrieve_data_head">Retrieve Data</string>
+    <string name="populate_data_head">Add Data</string>
+    <string name="add_reservation_head">Add Reservation Info</string>
+    <string name="add_passenger_head">Add Passenger Info</string>
+    <string name="add_ticket_head">Add Ticket Info</string>
+    <string name="add_flight_head">Add Flight Info</string>
+    <string name="submit_data">Submit Data</string>
+    <string name="error_msg">Oops!!! Something went wrong!!!</string>
+    <string name="success_msg">Data saved into table successfully!!!</string>
+    <string name="empty_error_txt">This can\'t be empty</string>
+</resources>
