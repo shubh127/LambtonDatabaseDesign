@@ -41,7 +41,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //creating flight table
-        db.execSQL( "CREATE TABLE " + TABLE_NAME_FLIGHT_INFO +
+        db.execSQL( "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_FLIGHT_INFO +
                 " (" + FLIGHT_COLUMN_SR_NO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 FLIGHT_COLUMN_FLIGHT_NO + " INTEGER, " +
                 FLIGHT_COLUMN_AIRCRAFT + " TEXT, " +
@@ -56,7 +56,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // Not Required but we have to override it
     }
 
-    public void addFlightInfo(int flightNo, String aircraft, String source, String destination, String airline, String flightTime) {
+    public boolean addFlightInfo(int flightNo, String aircraft, String source, String destination, String airline, String flightTime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -70,8 +70,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME_FLIGHT_INFO, null, values);
         if (result == -1) {
             Toast.makeText(context, context.getString(R.string.error_msg), Toast.LENGTH_SHORT).show();
+            return false;
         } else {
             Toast.makeText(context, context.getString(R.string.success_msg), Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
 }

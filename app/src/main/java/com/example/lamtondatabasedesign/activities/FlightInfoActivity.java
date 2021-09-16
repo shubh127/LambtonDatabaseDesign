@@ -115,13 +115,16 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
 
     private void saveDataToDatabase() {
         DataBaseHelper dbHelper = new DataBaseHelper(this);
-        dbHelper.addFlightInfo(Integer.parseInt(Objects.requireNonNull(tietFlightNumber.getText()).toString()),
+        boolean isSuccess = dbHelper.addFlightInfo(Integer.parseInt(Objects.requireNonNull(tietFlightNumber.getText()).toString()),
                 Objects.requireNonNull(tietAircraft.getText()).toString(),
                 Objects.requireNonNull(tietSource.getText()).toString(),
                 Objects.requireNonNull(tietDestination.getText()).toString(),
                 Objects.requireNonNull(tietAirline.getText()).toString(),
                 Objects.requireNonNull(tietFlightTime.getText()).toString());
         dbHelper.close();
+        if (isSuccess) {
+            finish();
+        }
     }
 
 }
