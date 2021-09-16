@@ -121,6 +121,7 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
                 Objects.requireNonNull(tietDestination.getText()).toString(),
                 Objects.requireNonNull(tietAirline.getText()).toString(),
                 Objects.requireNonNull(tietFlightTime.getText()).toString());
+        dbHelper.close();
     }
 
 }

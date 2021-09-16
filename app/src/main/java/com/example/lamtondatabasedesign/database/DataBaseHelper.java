@@ -34,23 +34,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_NAME_FLIGHT_INFO +
+        // Not Required but we have to override it
+    }
+
+    public void createTable() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //creating flight table
+        db.execSQL( "CREATE TABLE " + TABLE_NAME_FLIGHT_INFO +
                 " (" + FLIGHT_COLUMN_SR_NO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 FLIGHT_COLUMN_FLIGHT_NO + " INTEGER, " +
-
                 FLIGHT_COLUMN_AIRCRAFT + " TEXT, " +
                 FLIGHT_COLUMN_SOURCE + " TEXT, " +
                 FLIGHT_COLUMN_DESTINATION + " TEXT, " +
                 FLIGHT_COLUMN_AIRLINE + " TEXT, " +
-                FLIGHT_COLUMN_FLIGHT_TIME + " TEXT);";
-
-        db.execSQL(query);
+                FLIGHT_COLUMN_FLIGHT_TIME + " TEXT);");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_FLIGHT_INFO);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Not Required but we have to override it
     }
 
     public void addFlightInfo(int flightNo, String aircraft, String source, String destination, String airline, String flightTime) {

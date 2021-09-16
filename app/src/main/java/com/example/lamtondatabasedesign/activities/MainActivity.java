@@ -8,15 +8,26 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.lamtondatabasedesign.R;
+import com.example.lamtondatabasedesign.database.DataBaseHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private DataBaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dbHelper = new DataBaseHelper(this);
+
         initViews();
+        createDatabaseAndTables();
+    }
+
+    private void createDatabaseAndTables() {
+        dbHelper.getWritableDatabase();
+        dbHelper.createTable();
+        dbHelper.close();
     }
 
     private void initViews() {
