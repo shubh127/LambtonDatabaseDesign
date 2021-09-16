@@ -27,5 +27,10 @@
     <string name="aircraft_type">Aircraft type</string>
     <string name="airline_code">Airline Code</string>
     <string name="flight_source">Flight source</string>
-    <string name="ref_no">Refrence number</string>
+    <string name="ref_no">Reference number</string>
+    <string name="enter_ticket_data">Please Enter the Ticket Data</string>
+    <string name="ticket_number">Ticket number</string>
+    <string name="ticket_type">Ticket type</string>
+    <string name="price">Ticket price</string>
+    <string name="ticket_status">Ticket status</string>
 </resources>
