@@ -18,17 +18,21 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
 
     private TextInputEditText tietFlightNumber;
     private TextInputEditText tietAircraft;
-    private TextInputEditText tietSource;
+    private TextInputEditText tietAircraftType;
     private TextInputEditText tietDestination;
-    private TextInputEditText tietAirline;
+    private TextInputEditText tietAirlineCode;
     private TextInputEditText tietFlightTime;
+    private TextInputEditText tietFlightSource;
+    private TextInputEditText tietRefNo;
 
     private TextInputLayout tilFlightNumber;
     private TextInputLayout tilAircraft;
-    private TextInputLayout tilSource;
+    private TextInputLayout tilAircraftType;
     private TextInputLayout tilDestination;
-    private TextInputLayout tilAirline;
+    private TextInputLayout tilAirlineCode;
     private TextInputLayout tilFlightTime;
+    private TextInputLayout tilFlightSource;
+    private TextInputLayout tilRefNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +45,22 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
     private void initViews() {
         tietFlightNumber = findViewById(R.id.tiet_flight_no);
         tietAircraft = findViewById(R.id.tiet_aircraft);
-        tietSource = findViewById(R.id.tiet_source);
+        tietAircraftType = findViewById(R.id.tiet_aircraft_type);
         tietDestination = findViewById(R.id.tiet_destination);
-        tietAirline = findViewById(R.id.tiet_airline);
+        tietAirlineCode = findViewById(R.id.tiet_airline_code);
         tietFlightTime = findViewById(R.id.tiet_flight_time);
+        tietFlightSource = findViewById(R.id.tiet_flight_source);
+        tietRefNo = findViewById(R.id.tiet_ref_no);
+
 
         tilFlightNumber = findViewById(R.id.til_flight_no);
         tilAircraft = findViewById(R.id.til_aircraft);
-        tilSource = findViewById(R.id.til_source);
+        tilAircraftType = findViewById(R.id.til_aircraft_type);
         tilDestination = findViewById(R.id.til_destination);
-        tilAirline = findViewById(R.id.til_airline);
+        tilAirlineCode = findViewById(R.id.til_airline_code);
         tilFlightTime = findViewById(R.id.til_flight_time);
+        tilFlightSource= findViewById(R.id.til_flight_source);
+        tilRefNo= findViewById(R.id.til_ref_no);
 
         Button btnSubmit = findViewById(R.id.btn_submit_details);
 
@@ -82,11 +91,11 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
             tilAircraft.setError(null);
         }
 
-        if (TextUtils.isEmpty(tietSource.getText())) {
-            tilSource.setError(getString(R.string.empty_error_txt));
+        if (TextUtils.isEmpty(tietAircraftType.getText())) {
+            tilAircraftType.setError(getString(R.string.empty_error_txt));
             isValid = false;
         } else {
-            tilSource.setError(null);
+            tilAircraftType.setError(null);
         }
 
         if (TextUtils.isEmpty(tietDestination.getText())) {
@@ -96,11 +105,11 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
             tilDestination.setError(null);
         }
 
-        if (TextUtils.isEmpty(tietAirline.getText())) {
-            tilAirline.setError(getString(R.string.empty_error_txt));
+        if (TextUtils.isEmpty(tietAirlineCode.getText())) {
+            tilAirlineCode.setError(getString(R.string.empty_error_txt));
             isValid = false;
         } else {
-            tilAirline.setError(null);
+            tilAirlineCode.setError(null);
         }
 
         if (TextUtils.isEmpty(tietFlightTime.getText())) {
@@ -110,17 +119,34 @@ public class FlightInfoActivity extends AppCompatActivity implements View.OnClic
             tilFlightTime.setError(null);
         }
 
+        if (TextUtils.isEmpty(tietFlightSource.getText())) {
+            tilFlightSource.setError(getString(R.string.empty_error_txt));
+            isValid = false;
+        } else {
+            tilFlightSource.setError(null);
+        }
+
+        if (TextUtils.isEmpty(tietRefNo.getText())) {
+            tilRefNo.setError(getString(R.string.empty_error_txt));
+            isValid = false;
+        } else {
+            tilRefNo.setError(null);
+        }
+
         return isValid;
     }
 
     private void saveDataToDatabase() {
         DataBaseHelper dbHelper = new DataBaseHelper(this);
-        boolean isSuccess = dbHelper.addFlightInfo(Integer.parseInt(Objects.requireNonNull(tietFlightNumber.getText()).toString()),
+        boolean isSuccess = dbHelper.addFlightInfo(
+                Integer.parseInt(Objects.requireNonNull(tietFlightNumber.getText()).toString()),
                 Objects.requireNonNull(tietAircraft.getText()).toString(),
-                Objects.requireNonNull(tietSource.getText()).toString(),
+                Objects.requireNonNull(tietAircraftType.getText()).toString(),
                 Objects.requireNonNull(tietDestination.getText()).toString(),
-                Objects.requireNonNull(tietAirline.getText()).toString(),
-                Objects.requireNonNull(tietFlightTime.getText()).toString());
+                Objects.requireNonNull(tietAirlineCode.getText()).toString(),
+                Objects.requireNonNull(tietFlightTime.getText()).toString(),
+                Objects.requireNonNull(tietFlightSource.getText()).toString(),
+                Integer.parseInt(Objects.requireNonNull(tietRefNo.getText()).toString()));
         dbHelper.close();
         if (isSuccess) {
             finish();

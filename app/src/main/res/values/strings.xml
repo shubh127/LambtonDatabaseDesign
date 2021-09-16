@@ -11,7 +11,6 @@
     <string name="enter_flight_data">Please Enter the Flight Data</string>
     <string name="flight_number">Flight Number</string>
     <string name="aircraft">Aircraft</string>
-    <string name="source">Source</string>
     <string name="destination">Destination</string>
     <string name="airline">Airline</string>
     <string name="flight_time">Flight Time</string>
@@ -25,4 +24,8 @@
     <string name="error_msg">Oops!!! Something went wrong!!!</string>
     <string name="success_msg">Data saved into table successfully!!!</string>
     <string name="empty_error_txt">This can\'t be empty</string>
+    <string name="aircraft_type">Aircraft type</string>
+    <string name="airline_code">Airline Code</string>
+    <string name="flight_source">Flight source</string>
+    <string name="ref_no">Refrence number</string>
 </resources>

@@ -18,13 +18,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME_FLIGHT_INFO = "FLIGHT_INFO";
 
-    public static final String FLIGHT_COLUMN_SR_NO = "sr_no";
-    public static final String FLIGHT_COLUMN_FLIGHT_NO = "flight_no";
-    public static final String FLIGHT_COLUMN_AIRCRAFT = "aircraft";
-    public static final String FLIGHT_COLUMN_SOURCE = "source";
-    public static final String FLIGHT_COLUMN_DESTINATION = "destination";
-    public static final String FLIGHT_COLUMN_AIRLINE = "airline";
-    public static final String FLIGHT_COLUMN_FLIGHT_TIME = "flight_time";
+    public static final String FLIGHT_COLUMN_FLIGHT_NO = "fNo";
+    public static final String FLIGHT_COLUMN_AIRCRAFT = "fAircraft";
+    public static final String FLIGHT_COLUMN_AIRCRAFT_TYPE = "fAircraftType";
+    public static final String FLIGHT_COLUMN_DESTINATION = "fDestination";
+    public static final String FLIGHT_COLUMN_AIRLINE_CODE = "fAirlineCode";
+    public static final String FLIGHT_COLUMN_TIME = "fTime";
+    public static final String FLIGHT_COLUMN_SOURCE = "fSource";
+    public static final String FLIGHT_COLUMN_REF_NO = "referenceNo";
 
 
     public DataBaseHelper(@Nullable Context context) {
@@ -41,14 +42,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //creating flight table
-        db.execSQL( "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_FLIGHT_INFO +
-                " (" + FLIGHT_COLUMN_SR_NO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                FLIGHT_COLUMN_FLIGHT_NO + " INTEGER, " +
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME_FLIGHT_INFO +
+                " (" + FLIGHT_COLUMN_FLIGHT_NO + " INTEGER PRIMARY KEY , " +
                 FLIGHT_COLUMN_AIRCRAFT + " TEXT, " +
-                FLIGHT_COLUMN_SOURCE + " TEXT, " +
+                FLIGHT_COLUMN_AIRCRAFT_TYPE + " TEXT, " +
                 FLIGHT_COLUMN_DESTINATION + " TEXT, " +
-                FLIGHT_COLUMN_AIRLINE + " TEXT, " +
-                FLIGHT_COLUMN_FLIGHT_TIME + " TEXT);");
+                FLIGHT_COLUMN_AIRLINE_CODE + " TEXT, " +
+                FLIGHT_COLUMN_TIME + " TEXT, " +
+                FLIGHT_COLUMN_SOURCE + " TEXT, " +
+                FLIGHT_COLUMN_REF_NO + " INTEGER);");
     }
 
     @Override
@@ -56,16 +58,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // Not Required but we have to override it
     }
 
-    public boolean addFlightInfo(int flightNo, String aircraft, String source, String destination, String airline, String flightTime) {
+    public boolean addFlightInfo(int flightNo, String aircraft, String aircraftType, String destination, String airlineCode, String flightTime, String flightSource, int refNo) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put(FLIGHT_COLUMN_FLIGHT_NO, flightNo);
         values.put(FLIGHT_COLUMN_AIRCRAFT, aircraft);
-        values.put(FLIGHT_COLUMN_SOURCE, source);
+        values.put(FLIGHT_COLUMN_AIRCRAFT_TYPE, aircraftType);
         values.put(FLIGHT_COLUMN_DESTINATION, destination);
-        values.put(FLIGHT_COLUMN_AIRLINE, airline);
-        values.put(FLIGHT_COLUMN_FLIGHT_TIME, flightTime);
+        values.put(FLIGHT_COLUMN_AIRLINE_CODE, airlineCode);
+        values.put(FLIGHT_COLUMN_TIME, flightTime);
+        values.put(FLIGHT_COLUMN_SOURCE, flightSource);
+        values.put(FLIGHT_COLUMN_REF_NO, refNo);
 
         long result = db.insert(TABLE_NAME_FLIGHT_INFO, null, values);
         if (result == -1) {
