@@ -174,4 +174,31 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean addPassengerInfo(int pId, String passengerName, String address, String postalCode, String city, String province, String country, int phone, String email, String dob, int ticketNo, int refNo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_PID, pId);
+        values.put(COLUMN_NAME, passengerName);
+        values.put(COLUMN_ADDRESS, address);
+        values.put(COLUMN_POSTAL_CODE, postalCode);
+        values.put(COLUMN_CITY, city);
+        values.put(COLUMN_PROVINCE, province);
+        values.put(COLUMN_COUNTRY, country);
+        values.put(COLUMN_PHONE_NO, phone);
+        values.put(COLUMN_EMAIL, email);
+        values.put(COLUMN_DOB, dob);
+        values.put(COLUMN_TICKET_NO, ticketNo);
+        values.put(COLUMN_REF_NO, refNo);
+
+        long result = db.insert(TABLE_NAME_PASSENGER_INFO, null, values);
+        if (result == -1) {
+            Toast.makeText(context, context.getString(R.string.error_msg), Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            Toast.makeText(context, context.getString(R.string.success_msg), Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
 }

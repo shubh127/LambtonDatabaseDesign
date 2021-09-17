@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class ReferenceInfoActivity extends AppCompatActivity  implements View.OnClickListener{
+public class ReferenceInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextInputEditText tietRefNo;
     private TextInputEditText tietAirlineCode;
     private TextInputEditText tietFlightSource;
