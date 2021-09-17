@@ -5,7 +5,7 @@
     <string name="welcome_txt">Hi!!!!\nWhat would you like to do ?</string>
     <string name="select_table_heading">Select Table you want to populate data into</string>
     <string name="table_name_flight">Flight</string>
-    <string name="table_name_reservation">Reservation</string>
+    <string name="table_name_reservation">Reference</string>
     <string name="table_name_ticket">Ticket</string>
     <string name="table_name_passenger">Passenger</string>
     <string name="enter_flight_data">Please Enter the Flight Data</string>
@@ -33,4 +33,7 @@
     <string name="ticket_type">Ticket type</string>
     <string name="price">Ticket price</string>
     <string name="ticket_status">Ticket status</string>
+    <string name="enter_reference_data">Please Enter the Reference Data</string>
+    <string name="phone">Phone number</string>
+    <string name="passenger_id">Passenger Id</string>
 </resources>

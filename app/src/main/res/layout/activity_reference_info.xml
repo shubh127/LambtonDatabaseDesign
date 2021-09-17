@@ -24,52 +24,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="@string/enter_ticket_data"
+                android:text="@string/enter_reference_data"
                 android:textSize="25sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_ticket_no"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_head_txt">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_ticket_no"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/ticket_number"
-                    android:inputType="number"
-                    app:boxBackgroundColor="@android:color/transparent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_ticket_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_ticket_no">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_ticket_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/ticket_type"
-                    android:inputType="text"
-                    app:boxBackgroundColor="@android:color/transparent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_ref_no"
@@ -78,7 +38,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_ticket_type">
+                app:layout_constraintTop_toBottomOf="@id/tv_head_txt">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tiet_ref_no"
@@ -92,7 +52,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_price"
+                android:id="@+id/til_airline_code"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -101,32 +61,132 @@
                 app:layout_constraintTop_toBottomOf="@id/til_ref_no">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_price"
+                    android:id="@+id/tiet_airline_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:hint="@string/price"
+                    android:hint="@string/airline_code"
+                    android:inputType="text"
+                    app:boxBackgroundColor="@android:color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_flight_source"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_airline_code">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_flight_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/flight_source"
+                    android:inputType="text"
+                    app:boxBackgroundColor="@android:color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_flight_source">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/destination"
+                    android:inputType="text"
+                    app:boxBackgroundColor="@android:color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_destination">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/phone"
                     android:inputType="number"
                     app:boxBackgroundColor="@android:color/transparent" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_status"
+                android:id="@+id/til_ticket_no"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_price">
+                app:layout_constraintTop_toBottomOf="@id/til_phone">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_status"
+                    android:id="@+id/tiet_ticket_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:hint="@string/ticket_status"
-                    android:inputType="text"
+                    android:hint="@string/ticket_number"
+                    android:inputType="number"
+                    app:boxBackgroundColor="@android:color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_p_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_ticket_no">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_p_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/passenger_id"
+                    android:inputType="number"
+                    app:boxBackgroundColor="@android:color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_flight_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_p_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_flight_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/flight_number"
+                    android:inputType="number"
                     app:boxBackgroundColor="@android:color/transparent" />
 
             </com.google.android.material.textfield.TextInputLayout>

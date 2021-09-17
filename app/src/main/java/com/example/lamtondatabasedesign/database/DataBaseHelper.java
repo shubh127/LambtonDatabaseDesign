@@ -45,7 +45,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TICKET_PRICE = "ticketPrice";
     public static final String COLUMN_TICKET_STATUS = "ticketStatus";
 
-
     public DataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -144,6 +143,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TICKET_STATUS, status);
 
         long result = db.insert(TABLE_NAME_TICKET_INFO, null, values);
+        if (result == -1) {
+            Toast.makeText(context, context.getString(R.string.error_msg), Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            Toast.makeText(context, context.getString(R.string.success_msg), Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    public boolean addReferenceInfo(int refNo, String airlineCode, String source, String destination, int phone, int ticketNo, int pId, int flightNo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_REF_NO, refNo);
+        values.put(COLUMN_AIRLINE_CODE, airlineCode);
+        values.put(COLUMN_SOURCE, source);
+        values.put(COLUMN_DESTINATION, destination);
+        values.put(COLUMN_PHONE, phone);
+        values.put(COLUMN_TICKET_NO, ticketNo);
+        values.put(COLUMN_PID, pId);
+        values.put(COLUMN_FLIGHT_NO, flightNo);
+
+        long result = db.insert(TABLE_NAME_REFERENCE_INFO, null, values);
         if (result == -1) {
             Toast.makeText(context, context.getString(R.string.error_msg), Toast.LENGTH_SHORT).show();
             return false;

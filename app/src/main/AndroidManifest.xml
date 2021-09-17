@@ -16,7 +16,7 @@
             android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.ReservationInfoActivity"
+            android:name=".activities.ReferenceInfoActivity"
             android:exported="true"
             android:label="@string/add_reservation_head"
             android:parentActivityName=".activities.PopulateDataActivity"
